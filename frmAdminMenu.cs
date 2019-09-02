@@ -75,28 +75,44 @@ namespace skelot
             FrmAdminLogin frmAL = new FrmAdminLogin();
             frmAL.Show();
         }
-        public void InsertTrail()
+        public void getOutStock()
         {
+            //displaying data from Database to lstview
+            //  try
+            // {
+            listView2.Items.Clear();
+            listView2.Columns.Clear();
+            listView2.Columns.Add("Product ID", 100);
+            listView2.Columns.Add("Product Name", 150);
+            listView2.Columns.Add("Stock", 150);
+            listView2.Columns.Add("CritLimit", 150);
 
-            try
+            string sql2 = @"Select * from tblProduct where Stock like '" + 0 + "' ";
+            cm = new SqlCommand(sql2, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
             {
-                string sql = @"INSERT INTO tblLogTrail VALUES(@Dater,@Descrip,@Authority)";
-                cm = new SqlCommand(sql, cn);
-                cm.Parameters.AddWithValue("@Dater", label2.Text);
-                cm.Parameters.AddWithValue("@Descrip", "User: " + label1.Text + " has successfully logged Out!");
-                cm.Parameters.AddWithValue("@Authority", "Admin");
+                lst = listView2.Items.Add(dr[0].ToString());//ID
+                lst.SubItems.Add(dr[1].ToString());//NAme
+                lst.SubItems.Add(dr[6].ToString());//Stock
+                lst.SubItems.Add(dr[9].ToString());
 
 
-                cm.ExecuteNonQuery();
-                //   MessageBox.Show("Record successfully saved!", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Convert.ToInt32(dr[6].ToString()) == 0)
+                {
+
+                    lst.ForeColor = Color.Crimson;
 
 
+                }
+                else if (Convert.ToInt32(dr[6].ToString()) < Convert.ToInt32(dr[9].ToString()))
+                {
+                    lst.ForeColor = Color.Orange;
+
+                }
             }
-            catch (SqlException l)
-            {
-                MessageBox.Show("Re-input again. your username may already be taken!");
-                MessageBox.Show(l.Message);
-            }
+            dr.Close();
+
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)

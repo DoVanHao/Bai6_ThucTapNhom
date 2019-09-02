@@ -28,71 +28,50 @@ namespace skelot
             cn.Open();
             getData();
         }
-        public void getData()
-        {
-            //displaying data from Database to lstview
-            try
-            {
-                listView1.Items.Clear();
-                listView1.Columns.Clear();
-                listView1.Columns.Add("Date", 200);
-                listView1.Columns.Add("TransacType", 130);
-                listView1.Columns.Add("Description", 400);
-                listView1.Columns.Add("Authority", 90);
-
-
-                string sql2 = @"Select * from tblAuditTrail order by Dater DESC";
-                cm = new SqlCommand(sql2, cn);
-                dr = cm.ExecuteReader();
-                while (dr.Read())
-                {
-                    lst = listView1.Items.Add(dr[0].ToString());
-                    lst.SubItems.Add(dr[1].ToString());
-                    lst.SubItems.Add(dr[2].ToString());
-                    lst.SubItems.Add(dr[3].ToString());
-
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void getAuditTrail()
-        {
-            //displaying data from Database to lstview
-            try
-            {
-                listView1.Items.Clear();
-                listView1.Columns.Clear();
-                listView1.Columns.Add("Date", 200);
-                listView1.Columns.Add("TransacType", 90);
-                listView1.Columns.Add("Description", 350);
-                listView1.Columns.Add("Authority", 90);
-
-
-                string sql2 = @"Select * from tblAuditTrail where Transactype like '" + cboSort.Text + "' order by Dater DESC";
-                cm = new SqlCommand(sql2, cn);
-                dr = cm.ExecuteReader();
-                while (dr.Read())
-                {
-                    lst = listView1.Items.Add(dr[0].ToString());
-                    lst.SubItems.Add(dr[1].ToString());
-                    lst.SubItems.Add(dr[2].ToString());
-                    lst.SubItems.Add(dr[3].ToString());
-
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
      
+        public void getUnderStock()
+        {
+
+            listView2.Items.Clear();
+            listView2.Columns.Clear();
+            listView2.Columns.Add("Product ID", 100);
+            listView2.Columns.Add("Product Name", 150);
+            listView2.Columns.Add("Stock", 150);
+            listView2.Columns.Add("CritLimit", 150);
+
+            string sql2 = @"Select * from tblProduct";
+            cm = new SqlCommand(sql2, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read() == true)
+            {
+
+                if ((Convert.ToInt64(dr[6]) <= Convert.ToInt32(dr[9].ToString())) && Convert.ToInt64(dr[6]) >= 1)
+                {
+
+                    lst = listView2.Items.Add(dr[0].ToString());//ID
+                    lst.SubItems.Add(dr[1].ToString());//NAme
+                    lst.SubItems.Add(dr[6].ToString());//Stock
+                    lst.SubItems.Add(dr[9].ToString());
+
+                    if (Convert.ToInt32(dr[6].ToString()) == 0)
+                    {
+
+                        lst.ForeColor = Color.Crimson;
+
+
+                    }
+                    else if (Convert.ToInt32(dr[6].ToString()) < Convert.ToInt32(dr[9].ToString()))
+                    {
+                        lst.ForeColor = Color.Orange;
+
+                    }
+                }
+            }
+            dr.Close();
+
+        }
+
+
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboSort.Text == "Default")

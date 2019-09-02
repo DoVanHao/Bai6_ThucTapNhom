@@ -173,6 +173,18 @@ namespace skelot
             //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //   }
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime time = DateTime.Now;
+            lblDate.Text = time.ToString();
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblID.Text = listView2.FocusedItem.Text;
+            lblName.Text = listView2.FocusedItem.SubItems[1].Text;
+            lblLimit.Text = listView2.FocusedItem.SubItems[2].Text;
+        }
 
 
 
