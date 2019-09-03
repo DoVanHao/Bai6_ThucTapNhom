@@ -80,26 +80,6 @@ namespace skelot
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtOrderID.Text = listView1.FocusedItem.Text;
-            txtPID.Text = listView1.FocusedItem.SubItems[1].Text;
-            txtDesc.Text = listView1.FocusedItem.SubItems[2].Text;
-            txtPrice.Text = listView1.FocusedItem.SubItems[3].Text;
-            txtNetPrice.Text = listView1.FocusedItem.SubItems[4].Text;
-
-
-
-            txtType.Text = listView1.FocusedItem.SubItems[5].Text;
-            txtSize.Text = listView1.FocusedItem.SubItems[6].Text;
-            txtBrand.Text = listView1.FocusedItem.SubItems[7].Text;
-            txtStock.Text = listView1.FocusedItem.SubItems[8].Text;
-            txtManufac.Text = listView1.FocusedItem.SubItems[9].Text;
-            txtDateOrdered.Text = listView1.FocusedItem.SubItems[10].Text;
-
-            txtExtendDays.Select();
-
-        }
         public void Insert()
         {
 

@@ -62,19 +62,7 @@ namespace skelot
             frmRecordSales frmRecord = new frmRecordSales();
             frmRecord.Show();
         }
-        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-            AdminView AdminSearch = new AdminView();
-            AdminSearch.Show();
-        }
-        private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            InsertTrail();
-            this.Dispose();
-            FrmAdminLogin frmAL = new FrmAdminLogin();
-            frmAL.Show();
-        }
+      
         public void getOutStock()
         {
             //displaying data from Database to lstview
