@@ -34,32 +34,31 @@ namespace skelot
             frm1.Show();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        public void DeleteTrail()
         {
-
-            string sql = @"Select * from tblAdmin where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
-            cm = new SqlCommand(sql, cn);
-            dr = cm.ExecuteReader();
-            dr.Read();
-
-            if (dr.HasRows)
+            try
             {
-               
-                FrmAdminMenu frm7 = new FrmAdminMenu();
-                frm7.pass(txtUsername.Text);
-                frm7.Show();
-                this.Hide();
-                dr.Close();
-                InsertTrail();
-                dr.Close();  
+                string sql = @"INSERT INTO tblAuditTrail VALUES(@Dater,@Transactype,@Description,@Authority)";
+                cm = new SqlCommand(sql, cn);
+                cm.Parameters.AddWithValue("@Dater", lblDateNow.Text);
+                cm.Parameters.AddWithValue("@Transactype", "Deletion");
+                cm.Parameters.AddWithValue("@Description", "Item: " + txtName.Text + " has been removed from Receive Form!");
+                cm.Parameters.AddWithValue("@Authority", "Admin");
+
+
+                cm.ExecuteNonQuery();
+                //   MessageBox.Show("Record successfully saved!", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
             }
-               
-            else
+            catch (SqlException l)
             {
-                MessageBox.Show("Access Denied! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }      
-        }
-        public void InsertTrail()
+                MessageBox.Show("Re-input again. your username may already be taken!");
+                MessageBox.Show(l.Message);
+            }
+
+
+            public void InsertTrail()
         {
 
             try
