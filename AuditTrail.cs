@@ -28,7 +28,15 @@ namespace skelot
             cn.Open();
             getData();
         }
-       
+        private void frmCriticalItems_Load(object sender, EventArgs e)
+        {
+            cboManufac.SelectedIndex = 0;
+
+            generateID();
+            getManufacturer();
+            timer1.Start();
+        }
+
         public void getUnderStock()
         {
 

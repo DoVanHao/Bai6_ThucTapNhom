@@ -166,12 +166,7 @@ namespace skelot
 
                 }
             }
-            dr.Close();
-            //   }
-            //  catch (Exception ex)
-            //  {
-            //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //   }
+           
         }
         
 
@@ -239,15 +234,7 @@ namespace skelot
         }
 
     
-        private void frmCriticalItems_Load(object sender, EventArgs e)
-        {
-            cboManufac.SelectedIndex = 0;
-           
-            generateID();
-            getManufacturer();
-            timer1.Start();
-        }
-
+       
         public void getManufacturer()
         {
 

@@ -20,6 +20,16 @@
             base.Dispose(disposing);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            frmAddProduct frmAD = new frmAddProduct();
+            // frmAD.getManufacturer();
+            frmAD.Show();
+
+            this.Dispose();
+
+        }
         #region Windows Form Designer generated code
 
         /// <summary>
