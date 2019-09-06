@@ -37,6 +37,11 @@ namespace skelot
             timer1.Start();
         }
 
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '●';
+        }
+     
         public void getUnderStock()
         {
 

@@ -63,18 +63,30 @@ namespace skelot
             }
         }
 
-        
-
-        private void button1_Click(object sender, EventArgs e)
+        public void getManufacturer()
         {
 
-            frmAddProduct frmAD = new frmAddProduct();
-           // frmAD.getManufacturer();
-            frmAD.Show();
+            try
+            {
 
-           this.Dispose();
-          
+
+                string sql2 = @"Select * from tblManufacturer";
+                cm = new SqlCommand(sql2, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    cboManufac.Items.Add(dr[1].ToString());
+
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
+
 
         private void frmAddManufac_Load(object sender, EventArgs e)
         {

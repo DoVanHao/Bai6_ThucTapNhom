@@ -11,6 +11,7 @@ namespace skelot
 {
     public partial class frmStart : Form
     {
+        private System.ComponentModel.IContainer components = null;
         public frmStart()
         {
             InitializeComponent();

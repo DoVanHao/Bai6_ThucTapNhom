@@ -55,7 +55,12 @@ namespace skelot
 
         }
 
-     
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '●';
+        }
+
+
 
         public void TrailUpdate()
         {

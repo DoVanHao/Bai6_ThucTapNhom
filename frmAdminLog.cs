@@ -71,31 +71,8 @@ namespace skelot
             }
 
 
-            public void InsertTrail()
-        {
 
-            try
-            {
-                string sql = @"INSERT INTO tblLogTrail VALUES(@Dater,@Descrip,@Authority)";
-                cm = new SqlCommand(sql, cn);
-                cm.Parameters.AddWithValue("@Dater", lblTime.Text);
-                cm.Parameters.AddWithValue("@Descrip", "User: " + txtUsername.Text + " has successfully Logged In!");
-                cm.Parameters.AddWithValue("@Authority", "Admin");
-                cm.ExecuteNonQuery();
-     
-            }
-            catch (SqlException l)
-            {
-                MessageBox.Show("Re-input again.");
-                MessageBox.Show(l.Message);
-            }
-        }
-        private void Form5_Load(object sender, EventArgs e)
-        {
-            txtPassword.PasswordChar = '●';
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
+            private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;
            
