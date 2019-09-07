@@ -32,7 +32,7 @@ namespace skelot
             {
           
 
-                string sql2 = @"Select * from tblManufacturer";
+                string sql2 = @"Select * from dbo.Manufacturer";
                 cm = new SqlCommand(sql2, cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())

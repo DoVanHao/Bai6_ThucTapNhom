@@ -47,7 +47,7 @@ namespace skelot
         {
 
         }
-  private void btnSua_Click_2(object sender, EventArgs e)
+        private void btnSua_Click_2(object sender, EventArgs e)
         {
             int luongnv = 0;
             try
@@ -68,7 +68,7 @@ namespace skelot
                 nvb.updateNV(txtMaNv.Text, txtTenNv.Text, dtpNgaysinh.Value.ToString("dd/MM/yyyy"), txtDiachi.Text, luongnv, cbxPhongban.SelectedValue.ToString(), cbxDuan.SelectedValue.ToString());
             Quanlynhanvien_Load(sender, e);
         }
-		        private void btnThem_Click(object sender, EventArgs e)
+	     private void btnThem_Click(object sender, EventArgs e)
         {
             int luongnv=0 ;
             try
@@ -83,8 +83,6 @@ namespace skelot
                 MessageBox.Show("Mã nhân viên không được để trống !");
             else if (txtTenNv.Text.Trim() == "")
                 MessageBox.Show("Tên nhân viên không được để trống !");
-            else if (luongnv == 0)
-                MessageBox.Show("Thêm thất bại !");
             else
                 nvb.insertNV(txtMaNv.Text, txtTenNv.Text, dtpNgaysinh.Value.ToString("dd/MM/yyyy"), txtDiachi.Text, luongnv, cbxPhongban.SelectedValue.ToString(), cbxDuan.SelectedValue.ToString());
             Quanlynhanvien_Load(sender, e);

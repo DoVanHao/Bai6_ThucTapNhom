@@ -108,7 +108,6 @@ namespace skelot
                 }
                 catch (SqlException l)
                 {
-                    MessageBox.Show("Re-input again. your username may already be taken!");
                     MessageBox.Show(l.Message);
                 }
             
@@ -134,8 +133,7 @@ namespace skelot
 
         private void FrmRegister_Load(object sender, EventArgs e)
         {
-            timer1.Start();
-            generateID();
+           
         }
 
         private void txtCreateUser_TextChanged(object sender, EventArgs e)
