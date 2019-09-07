@@ -108,7 +108,7 @@
             this.txtIDCode.Name = "txtIDCode";
             this.txtIDCode.Size = new System.Drawing.Size(159, 30);
             this.txtIDCode.TabIndex = 44;
-            this.txtIDCode.TextChanged += new System.EventHandler(this.txtIDCode_TextChanged);
+
             // 
             // txtPrice
             // 

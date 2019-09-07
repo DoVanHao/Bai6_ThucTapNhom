@@ -25,10 +25,7 @@ namespace skelot
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
-        } 
+
         public void getManufacturer()
         { 
           
@@ -68,10 +65,7 @@ namespace skelot
           
         }
       
-        private void btnUpdateI_Click(object sender, EventArgs e)
-        {
 
-        }
         public void CLear() 
         {
           //  txtIDCode.Text = "";
@@ -116,10 +110,6 @@ namespace skelot
 
         }
 
-        private void txtIDCode_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
         public void generateID()
     {
 
