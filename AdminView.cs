@@ -13,7 +13,7 @@ namespace skelot
     public partial class AdminView : Form
     {
         SqlCommand cm;
-        SqlConnection cn;
+        SqlConnection con;
         SqlDataReader dr;
         //string connection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Data.accdb";
 
@@ -27,8 +27,8 @@ namespace skelot
 
         private void AdminSearch_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(login.connection);
-            cn.Open();
+            con = new SqlConnection(login.connection);
+            con.Open();
             this.getData();
         }
 

@@ -81,7 +81,7 @@ namespace skelot
             }
             catch (SqlException l)
             {
-               // MessageBox.Show("Re-input again. your username may already be taken!");
+                MessageBox.Show("Re-input again. your username may already be taken!");
                 MessageBox.Show(l.Message);
             }
         
@@ -106,10 +106,7 @@ namespace skelot
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            DateTime time = DateTime.Now;
-         //   string format = "MM-dd-yyy HH:mm:ss";
-            lblTimer.Text = time.ToString();
-      
+           
         }
 
         private void txtExtendDays_TextChanged(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace skelot
     {
 
         SqlCommand cm;
-        SqlConnection cn;
+        SqlConnection con;
         SqlDataReader dr;
        // string connection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Data.accdb";
         ListViewItem lst;
@@ -22,8 +22,8 @@ namespace skelot
         public LoginTrail()
         {
             InitializeComponent();
-            cn = new SqlConnection(login.connection);
-            cn.Open();
+            con = new SqlConnection(login.connection);
+            con.Open();
             getData();
         }
         public void getData()
@@ -141,8 +141,10 @@ namespace skelot
 
             }
         }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.getData();
+        }
 
-   
-     
     }
 }

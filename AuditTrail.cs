@@ -84,7 +84,10 @@ namespace skelot
 
         }
 
-
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.getData();
+        }
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboSort.Text == "Default")
@@ -104,11 +107,6 @@ namespace skelot
             this.Dispose();
             FrmAdminMenu AM = new FrmAdminMenu();
             AM.Show();
-        }
-
-        private void AuditTrail_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnRemoveAll_Click(object sender, EventArgs e)
