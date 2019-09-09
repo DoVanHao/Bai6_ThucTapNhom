@@ -79,10 +79,34 @@ namespace skelot
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            FrmAdminMenu Am = new FrmAdminMenu();
+            Am.Show();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(connection);
+            cn.Open();
+            txtPassword.PasswordChar = '●';
 
+        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             this.getData();
+        }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(connection);
+            cn.Open();
+            txtPassword.PasswordChar = '●';
+
         }
     }
 }

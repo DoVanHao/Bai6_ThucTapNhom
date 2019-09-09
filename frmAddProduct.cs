@@ -48,6 +48,13 @@ namespace skelot
             }
     
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(connection);
+            cn.Open();
+            txtPassword.PasswordChar = '●';
+
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();

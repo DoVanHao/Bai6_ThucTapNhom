@@ -41,7 +41,13 @@ namespace skelot
         {
             txtPassword.PasswordChar = '●';
         }
-     
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(connection);
+            cn.Open();
+            txtPassword.PasswordChar = '●';
+
+        }
         public void getUnderStock()
         {
 
