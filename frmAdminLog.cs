@@ -13,12 +13,10 @@ namespace skelot
     
     public partial class FrmAdminLogin : Form
     {
-
         SqlCommand cm;
         SqlConnection cn;
         SqlDataReader dr;
         frmLogin login = new frmLogin();
-       // public string connection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Data.accdb";
 
         public FrmAdminLogin()
         {
@@ -34,7 +32,6 @@ namespace skelot
             this.Hide();
             frmStart frm1 = new frmStart();
             frm1.Show();
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -54,15 +51,13 @@ namespace skelot
                 this.Hide();
                 dr.Close();
                 InsertTrail();
-                dr.Close();
-                MessageBox.Show("Welcome Admin :)");            
+                dr.Close();  
             }
                
             else
             {
                 MessageBox.Show("Access Denied! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-           
+            }      
         }
         public void InsertTrail()
         {
@@ -74,12 +69,8 @@ namespace skelot
                 cm.Parameters.AddWithValue("@Dater", lblTime.Text);
                 cm.Parameters.AddWithValue("@Descrip", "User: " + txtUsername.Text + " has successfully Logged In!");
                 cm.Parameters.AddWithValue("@Authority", "Admin");
-
-
                 cm.ExecuteNonQuery();
-                //   MessageBox.Show("Record successfully saved!", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+     
             }
             catch (SqlException l)
             {
