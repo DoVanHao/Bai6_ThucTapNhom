@@ -78,5 +78,29 @@ namespace skelot
            
             lblTime.Text = time.ToString();
         }
+		
+		// hàm xóa
+		public void DeleteTrail()
+        {
+            try
+            {
+                string sql = @"INSERT INTO tblAuditTrail VALUES(@Dater,@Transactype,@Description,@Authority)";
+                cm = new SqlCommand(sql, cn);
+                cm.Parameters.AddWithValue("@Dater", lblDateNow.Text);
+                cm.Parameters.AddWithValue("@Transactype", "Deletion");
+                cm.Parameters.AddWithValue("@Description", "Item: " + txtName.Text + " has been removed from Receive Form!");
+                cm.Parameters.AddWithValue("@Authority", "Admin");
+
+
+                cm.ExecuteNonQuery();
+                //   MessageBox.Show("Record successfully saved!", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (SqlException l)
+            {
+                MessageBox.Show("Re-input again. your username may already be taken!");
+                MessageBox.Show(l.Message);
+            }
     }
 }
