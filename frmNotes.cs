@@ -229,7 +229,7 @@ namespace skelot
 
             if (MessageBox.Show("Doyou really want to DELETE this Order??", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                //   AllDelTrail();
+                  AllDelTrail();
                 DeleteNote();
                 getData();
             }
@@ -240,12 +240,18 @@ namespace skelot
             txtExtendDays.Text = "";
   
         }
+        private void btnTaoMoi_Click(object sender, EventArgs e)
+        {
+            frmThemPX_Load(sender, e);
+            dgvSPX.Rows.Clear();
+            numericUpDownSL.Value = numericUpDownGN.Value = 1;
+        }
         public void DeleteAll()
         {
 
             try
             {
-                //  listView1.FocusedItem.Remove();
+                  listView1.FocusedItem.Remove();
                 string del = "DELETE from tblOrderNote";
                 cm = new SqlCommand(del, cn); cm.ExecuteNonQuery();
 
