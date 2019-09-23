@@ -33,57 +33,46 @@ namespace skelot
             frmStart frm1 = new frmStart();
             frm1.Show();
         }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            string sql = @"Select * from tblAdmin where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
-            cm = new SqlCommand(sql, cn);
-            dr = cm.ExecuteReader();
-            dr.Read();
-
-            if (dr.HasRows)
-            {
-               
-                FrmAdminMenu frm7 = new FrmAdminMenu();
-                frm7.pass(txtUsername.Text);
-                frm7.Show();
-                this.Hide();
-                dr.Close();
-                InsertTrail();
-                dr.Close();  
-            }
-               
-            else
-            {
-                MessageBox.Show("Access Denied! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }      
+            this.Dispose();
+            AdminView AdminSearch = new AdminView();
+            AdminSearch.Show();
         }
-        public void InsertTrail()
+        private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            InsertTrail();
+            this.Dispose();
+            FrmAdminLogin frmAL = new FrmAdminLogin();
+            frmAL.Show();
+        }
 
+        public void DeleteTrail()
+        {
             try
             {
-                string sql = @"INSERT INTO tblLogTrail VALUES(@Dater,@Descrip,@Authority)";
+                string sql = @"INSERT INTO tblAuditTrail VALUES(@Dater,@Transactype,@Description,@Authority)";
                 cm = new SqlCommand(sql, cn);
-                cm.Parameters.AddWithValue("@Dater", lblTime.Text);
-                cm.Parameters.AddWithValue("@Descrip", "User: " + txtUsername.Text + " has successfully Logged In!");
+                cm.Parameters.AddWithValue("@Dater", lblDateNow.Text);
+                cm.Parameters.AddWithValue("@Transactype", "Deletion");
+                cm.Parameters.AddWithValue("@Description", "Item: " + txtName.Text + " has been removed from Receive Form!");
                 cm.Parameters.AddWithValue("@Authority", "Admin");
+
+
                 cm.ExecuteNonQuery();
-     
+                //   MessageBox.Show("Record successfully saved!", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
             }
             catch (SqlException l)
             {
-                MessageBox.Show("Re-input again.");
+                MessageBox.Show("Re-input again. your username may already be taken!");
                 MessageBox.Show(l.Message);
             }
-        }
-        private void Form5_Load(object sender, EventArgs e)
-        {
-            txtPassword.PasswordChar = '●';
-        }
 
-        private void timer1_Tick(object sender, EventArgs e)
+
+
+            private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;
            

@@ -24,8 +24,7 @@ namespace skelot
         {
             InitializeComponent();
         }
-
-
+       
         public void getManufacturer()
         { 
           
@@ -33,7 +32,7 @@ namespace skelot
             {
           
 
-                string sql2 = @"Select * from tblManufacturer";
+                string sql2 = @"Select * from dbo.Manufacturer";
                 cm = new SqlCommand(sql2, cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
@@ -48,6 +47,19 @@ namespace skelot
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
     
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(connection);
+            cn.Open();
+            txtPassword.PasswordChar = '●';
+
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            FrmAdminLogin frm5 = new FrmAdminLogin();
+            frm5.Show();
         }
 
         private void Form11_Load(object sender, EventArgs e)

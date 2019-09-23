@@ -13,7 +13,7 @@ namespace skelot
     public partial class AdminView : Form
     {
         SqlCommand cm;
-        SqlConnection cn;
+        SqlConnection con;
         SqlDataReader dr;
         //string connection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Data.accdb";
 
@@ -27,8 +27,8 @@ namespace skelot
 
         private void AdminSearch_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(login.connection);
-            cn.Open();
+            con = new SqlConnection(login.connection);
+            con.Open();
             this.getData();
         }
 
@@ -79,10 +79,34 @@ namespace skelot
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            FrmAdminMenu Am = new FrmAdminMenu();
+            Am.Show();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(connection);
+            cn.Open();
+            txtPassword.PasswordChar = '●';
 
+        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             this.getData();
+        }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(connection);
+            cn.Open();
+            txtPassword.PasswordChar = '●';
+
         }
     }
 }
