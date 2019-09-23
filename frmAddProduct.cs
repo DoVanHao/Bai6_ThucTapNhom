@@ -24,7 +24,10 @@ namespace skelot
         {
             InitializeComponent();
         }
-       
+        private void LoginTrail_Load(object sender, EventArgs e)
+        {
+
+        }
         public void getManufacturer()
         { 
           

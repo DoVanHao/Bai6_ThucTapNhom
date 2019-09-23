@@ -40,12 +40,15 @@ namespace skelot
             reportViewer1.LocalReport.DataSources.Add(rptDataSource);
 
             reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-        } 
+        }
+        private void LoginTrail_Load(object sender, EventArgs e)
+        {
 
+        }
 
         private void ItemReport_Load(object sender, EventArgs e)
         {
-
+            InitializeComponent();
         }
     }
 }

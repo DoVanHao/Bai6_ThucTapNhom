@@ -56,10 +56,7 @@ namespace skelot
             }
         }
 
-        private void LoginTrail_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
         {
