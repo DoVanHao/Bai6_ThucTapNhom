@@ -16,7 +16,7 @@ namespace skelot
         SqlCommand cm;
         SqlConnection cn;
         SqlDataReader dr;
-        public string connection = @"Data Source=DESKTOP-2QBJM9N;Initial Catalog=QL_Banhang;Integrated Security=True";
+        public string connection = @"Data Source=DESKTOP-42NHODK;Initial Catalog=QL_Banhang;Integrated Security=True";
 
 
         public frmLogin()
@@ -40,7 +40,7 @@ namespace skelot
         {
         
 
-            string sql = @"Select * from tblLogin where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
+            string sql = @"Select * from dbo.Login where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
             cm = new SqlCommand(sql, cn);
             dr = cm.ExecuteReader();
             dr.Read();
@@ -69,7 +69,7 @@ namespace skelot
 
             try
             {
-                string sql = @"INSERT INTO tblLogTrail VALUES(@Dater,@Description,@Authority)";
+                string sql = @"INSERT INTO dbo.LogTrail VALUES(@Dater,@Description,@Authority)";
                 cm = new SqlCommand(sql, cn);
                 cm.Parameters.AddWithValue("@Dater", lblTime.Text);
                 cm.Parameters.AddWithValue("@Description", "User: " + txtUsername.Text + " has successfully Logged In!");
@@ -134,7 +134,7 @@ namespace skelot
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;
-           // string format = "MM-dd-yyy HH:mm:ss";
+            string format = "MM-dd-yyy HH:mm:ss";
             lblTime.Text = time.ToString();
         }
 

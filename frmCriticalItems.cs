@@ -166,16 +166,12 @@ namespace skelot
 
                 }
             }
-            dr.Close();
-            //   }
-            //  catch (Exception ex)
-            //  {
-            //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //   }
+           
         }
+        
 
 
-
+        
 
         public void getUnderStock()
         {
@@ -237,16 +233,26 @@ namespace skelot
            // }
         }
 
-    
-        private void frmCriticalItems_Load(object sender, EventArgs e)
-        {
-            cboManufac.SelectedIndex = 0;
-           
-            generateID();
-            getManufacturer();
-            timer1.Start();
-        }
 
+        public void InsertTrail()
+        {
+
+            try
+            {
+                string sql = @"INSERT INTO tblLogTrail VALUES(@Dater,@Descrip,@Authority)";
+                cm = new SqlCommand(sql, cn);
+                cm.Parameters.AddWithValue("@Dater", lblTime.Text);
+                cm.Parameters.AddWithValue("@Descrip", "User: " + txtUsername.Text + " has successfully Logged In!");
+                cm.Parameters.AddWithValue("@Authority", "Admin");
+                cm.ExecuteNonQuery();
+
+            }
+            catch (SqlException l)
+            {
+                MessageBox.Show("Re-input again.");
+                MessageBox.Show(l.Message);
+            }
+        }
         public void getManufacturer()
         {
 
@@ -271,6 +277,11 @@ namespace skelot
 
         }
 
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '●';
+        }
+
 
 
         private void cboItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -293,11 +304,6 @@ namespace skelot
 
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-   
-        
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
