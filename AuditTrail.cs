@@ -129,12 +129,12 @@ namespace skelot
 
             if (MessageBox.Show("Do you really want to Delete ALL items?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                //   AllDelTrail();
+               
                
 
             try
             {
-                //  listView1.FocusedItem.Remove();
+            
                 string del = "DELETE from tblAuditTrail";
                 cm = new SqlCommand(del, cn); cm.ExecuteNonQuery();
 
