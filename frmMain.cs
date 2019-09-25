@@ -20,8 +20,15 @@ namespace skelot
     
 
 
+        }
+    private void btnCancel_Click(object sender, EventArgs e)
+    {
 
-        ListViewItem lst;
+        this.Hide();
+        frmStart frm1 = new frmStart();
+        frm1.Show();
+    }
+    ListViewItem lst;
         double Total, temp;
         double _totalPayment, _cash, _change;
         double FinStock;

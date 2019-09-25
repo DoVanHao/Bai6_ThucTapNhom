@@ -56,7 +56,13 @@ namespace skelot
             }
         }
 
-      
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
 
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
         {

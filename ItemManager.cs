@@ -23,7 +23,12 @@ namespace skelot
         {
             InitializeComponent();
         }
-
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            FrmAdminLogin frm5 = new FrmAdminLogin();
+            frm5.Show();
+        }
         public void LoadData(string sql)
         {
             cn = new SqlConnection(frm.connection);

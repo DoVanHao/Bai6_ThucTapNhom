@@ -25,7 +25,12 @@ namespace skelot
             cn = new SqlConnection(login.connection);
             cn.Open();
         }
-
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            FrmAdminLogin frm5 = new FrmAdminLogin();
+            frm5.Show();
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
 

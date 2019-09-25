@@ -17,7 +17,12 @@ namespace skelot
        // SqlDataReader dr;
       //  string connection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Data.accdb";
         frmLogin login = new frmLogin();
-
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            FrmAdminLogin frm5 = new FrmAdminLogin();
+            frm5.Show();
+        }
 
         public frmAddManufac()
         {
