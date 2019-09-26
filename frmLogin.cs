@@ -147,5 +147,34 @@ namespace skelot
         {
 
         }
+		
+		private void btnLogin_Click(object sender, EventArgs e)
+        {
+        
+
+            string sql = @"Select * from dbo.Login where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
+            cm = new SqlCommand(sql, cn);
+            dr = cm.ExecuteReader();
+            dr.Read();
+
+            if (dr.HasRows)
+            {
+                this.Hide();
+                dr.Close();
+
+                InsertTrail();
+                FrmBookStore frm2 = new FrmBookStore();
+                frm2.pass(txtUsername.Text, lblTime.Text);
+               
+                frm2.ShowDialog();
+
+              
+            }
+            else
+            {
+                MessageBox.Show("Access Denied! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+
+        }
     }
 }
