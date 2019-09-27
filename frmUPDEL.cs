@@ -19,11 +19,14 @@ namespace skelot
         ListViewItem lst;
         //string connection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Data.accdb";
         frmLogin login = new frmLogin();
-        private void LoginTrail_Load(object sender, EventArgs e)
+       
+       private void btnCancel_Click(object sender, EventArgs e)
         {
 
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
         }
-
         public FrmUpdate()
         {
 

@@ -38,11 +38,12 @@ namespace skelot
             frmStart frm1 = new frmStart();
             frm1.Show();
         }
-        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            AdminView AdminSearch = new AdminView();
-            AdminSearch.Show();
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
         }
         private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
         {

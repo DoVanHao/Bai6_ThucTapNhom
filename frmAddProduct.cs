@@ -74,7 +74,13 @@ namespace skelot
             timer1.Start();
           
         }
-      
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
 
         public void CLear() 
         {

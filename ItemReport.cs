@@ -41,9 +41,12 @@ namespace skelot
 
             reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
         }
-        private void LoginTrail_Load(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
 
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
         }
 
         private void ItemReport_Load(object sender, EventArgs e)
