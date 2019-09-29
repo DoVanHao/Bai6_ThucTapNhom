@@ -24,11 +24,13 @@ namespace skelot
             frm5.Show();
         }
 
-        public frmAddManufac()
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-        }
 
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
 

@@ -45,9 +45,18 @@ namespace skelot
             reportViewer1.LocalReport.DataSources.Add(rptDataSource);
 
             reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-        } 
-
-
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime time = DateTime.Now;
+            string format = "MM-dd-yyy";
+            lblTimer.Text = time.ToString(format);
+            lblDate.Text = time.ToString();
+        }
+        private void ItemReport_Load(object sender, EventArgs e)
+        {
+            InitializeComponent();
+        }
         private void ItemReport_Load(object sender, EventArgs e)
         {
 

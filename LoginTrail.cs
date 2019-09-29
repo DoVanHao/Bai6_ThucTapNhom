@@ -55,8 +55,11 @@ namespace skelot
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void ItemReport_Load(object sender, EventArgs e)
+        {
+            InitializeComponent();
+        }
 
-       
 
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
         {

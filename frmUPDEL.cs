@@ -27,6 +27,13 @@ namespace skelot
             frmStart frm1 = new frmStart();
             frm1.Show();
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime time = DateTime.Now;
+            string format = "MM-dd-yyy";
+            lblTimer.Text = time.ToString(format);
+            lblDate.Text = time.ToString();
+        }
         public FrmUpdate()
         {
 
@@ -34,7 +41,13 @@ namespace skelot
             cn = new SqlConnection(login.connection);
             cn.Open();
         }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
 
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
         public void Clear() 
         {
 
