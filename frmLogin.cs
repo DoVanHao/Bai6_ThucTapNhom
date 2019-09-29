@@ -176,5 +176,27 @@ namespace skelot
             }
 
         }
+		
+		public void InsertTrail() 
+        {
+
+            try
+            {
+                string sql = @"INSERT INTO dbo.LogTrail VALUES(@Dater,@Description,@Authority)";
+                cm = new SqlCommand(sql, cn);
+                cm.Parameters.AddWithValue("@Dater", lblTime.Text);
+                cm.Parameters.AddWithValue("@Description", "User: " + txtUsername.Text + " has successfully Logged In!");
+                cm.Parameters.AddWithValue("@Authority", "Cashier");
+         
+
+                cm.ExecuteNonQuery();
+                           
+            }
+            catch (SqlException l)
+            {
+                MessageBox.Show("Re-input again. your username may already be taken!");
+                MessageBox.Show(l.Message);
+            }
+        }
     }
 }
