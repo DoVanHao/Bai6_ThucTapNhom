@@ -198,5 +198,12 @@ namespace skelot
                 MessageBox.Show(l.Message);
             }
         }
+		
+		private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime time = DateTime.Now;
+            string format = "MM-dd-yyy HH:mm:ss";
+            lblTime.Text = time.ToString();
+        }
     }
 }
