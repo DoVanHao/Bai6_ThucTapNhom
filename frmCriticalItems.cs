@@ -168,10 +168,61 @@ namespace skelot
             }
            
         }
-        
 
 
-        
+
+        public void SearchCritical()
+        {
+            //displaying data from Database to lstview
+            //  try
+            // {
+            listView2.Items.Clear();
+            listView2.Columns.Clear();
+            listView2.Columns.Add("Product ID", 100);
+            listView2.Columns.Add("Product Name", 210);
+
+            listView2.Columns.Add("Price", 90);
+            listView2.Columns.Add("Offered Price", 100);
+            listView2.Columns.Add("Type", 80);
+            listView2.Columns.Add("Size", 100);
+            listView2.Columns.Add("Brand", 80);
+            listView2.Columns.Add("Stock", 95);
+            listView2.Columns.Add("Manufacturer", 100);
+
+            listView2.Columns.Add("CritLimit", 95);
+
+            string sql2 = @"Select * from tblProduct where Descrip like '" + txtSearch.Text + "%'";
+            cm = new SqlCommand(sql2, cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                lst = listView2.Items.Add(dr[0].ToString());//ID
+                lst.SubItems.Add(dr[1].ToString());//NAme
+                lst.SubItems.Add(dr[2].ToString());//Price
+                lst.SubItems.Add(dr[7].ToString());//Net Price
+                lst.SubItems.Add(dr[3].ToString());//Type
+                lst.SubItems.Add(dr[4].ToString());//Size
+                lst.SubItems.Add(dr[5].ToString());//Brand
+                lst.SubItems.Add(dr[6].ToString());//Stock
+                lst.SubItems.Add(dr[8].ToString());//Manufacturer
+                lst.SubItems.Add(dr[9].ToString());
+
+                if (Convert.ToInt32(dr[6].ToString()) == 0)
+                {
+
+                    lst.ForeColor = Color.Crimson;
+
+
+                }
+                else if (Convert.ToInt32(dr[6].ToString()) < Convert.ToInt32(dr[9].ToString()))
+                {
+                    lst.ForeColor = Color.Orange;
+
+                }
+            }
+
+        }
+
 
         public void getUnderStock()
         {
