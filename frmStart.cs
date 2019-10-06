@@ -51,5 +51,19 @@ namespace skelot
         {
 
         }
+		
+		private void loginAsCashierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmLogin frmUserLog = new frmLogin();
+            frmUserLog.Show();
+        }
+		
+		private void loginAsAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmAdminLogin frmAD = new FrmAdminLogin();
+            frmAD.Show();
+        }
     }
 }
