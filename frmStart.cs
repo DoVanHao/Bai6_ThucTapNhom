@@ -65,5 +65,17 @@ namespace skelot
             FrmAdminLogin frmAD = new FrmAdminLogin();
             frmAD.Show();
         }
+		
+		private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmRegister frmReg = new FrmRegister();
+            frmReg.Show();
+        }
+
+        private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
