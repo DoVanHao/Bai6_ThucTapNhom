@@ -148,6 +148,23 @@ namespace skelot
 
         }
 		
+		private void Form1_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(connection);
+            cn.Open();
+            txtPassword.PasswordChar = '●';
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+
+            FrmRegister frm4 = new FrmRegister();
+            frm4.ShowDialog();
+
+        }
+		
 		private void btnLogin_Click(object sender, EventArgs e)
         {
         
