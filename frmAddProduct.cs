@@ -74,14 +74,14 @@ namespace skelot
             timer1.Start();
           
         }
-        private void btnCancel_Click(object sender, EventArgs e)
+      
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
+            DateTime time = DateTime.Now;
+            string format = "MM-dd-yyy";
+            lblTimer.Text = time.ToString(format);
+            lblDate.Text = time.ToString();
         }
-
         public void CLear() 
         {
           //  txtIDCode.Text = "";

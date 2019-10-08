@@ -53,6 +53,13 @@ namespace skelot
             lblTimer.Text = time.ToString(format);
             lblDate.Text = time.ToString();
         }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
         private void ItemReport_Load(object sender, EventArgs e)
         {
             InitializeComponent();

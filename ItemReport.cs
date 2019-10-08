@@ -48,6 +48,13 @@ namespace skelot
             frmStart frm1 = new frmStart();
             frm1.Show();
         }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
 
         private void ItemReport_Load(object sender, EventArgs e)
         {
