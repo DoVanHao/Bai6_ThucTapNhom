@@ -27,13 +27,26 @@ namespace skelot
             frmStart frm1 = new frmStart();
             frm1.Show();
         }
-     
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
         public FrmUpdate()
         {
 
             InitializeComponent();
             cn = new SqlConnection(login.connection);
             cn.Open();
+        }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {

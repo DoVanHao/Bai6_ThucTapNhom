@@ -46,6 +46,13 @@ namespace skelot
 
             reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
         }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;
