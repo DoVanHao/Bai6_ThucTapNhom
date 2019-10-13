@@ -63,49 +63,7 @@ namespace skelot
             }
         }
 
-        public void getManufacturer()
-        {
-
-            try
-            {
-
-
-                string sql2 = @"Select * from tblManufacturer";
-                cm = new SqlCommand(sql2, cn);
-                dr = cm.ExecuteReader();
-                while (dr.Read())
-                {
-                    cboManufac.Items.Add(dr[1].ToString());
-
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-
-        private void frmAddManufac_Load(object sender, EventArgs e)
-        {
-            cn = new SqlConnection(login.connection);
-            cn.Open(); 
-            generateID();
-        }
-        public void generateID()
-        {
-
-            var chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var random = new Random();
-            var result = new string(
-                Enumerable.Repeat(chars, 5)
-                          .Select(s => s[random.Next(s.Length)])
-                          .ToArray());
-            txtID.Text ="MID:" + result;
-
-        }
+        
         public void Clear() 
         {
             txtID.Text = "";
