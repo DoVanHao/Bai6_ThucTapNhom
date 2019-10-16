@@ -80,6 +80,29 @@ namespace skelot
         }
 		
 		// hàm xóa
+		
+		public FrmAdminLogin()
+        {
+            InitializeComponent();
+            timer1.Start();
+            cn = new SqlConnection(login.connection);
+            cn.Open();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            frmStart frm1 = new frmStart();
+            frm1.Show();
+        }
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            AdminView AdminSearch = new AdminView();
+            AdminSearch.Show();
+        }
+		
 		public void DeleteTrail()
         {
             try
