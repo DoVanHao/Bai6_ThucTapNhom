@@ -24,10 +24,11 @@ namespace skelot
         {
             InitializeComponent();
         }
-        private void LoginTrail_Load(object sender, EventArgs e)
-        {
 
-        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+        } 
         public void getManufacturer()
         { 
           
@@ -35,7 +36,7 @@ namespace skelot
             {
           
 
-                string sql2 = @"Select * from dbo.Manufacturer";
+                string sql2 = @"Select * from tblManufacturer";
                 cm = new SqlCommand(sql2, cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
@@ -51,14 +52,6 @@ namespace skelot
             }
     
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            cn = new SqlConnection(connection);
-            cn.Open();
-            txtPassword.PasswordChar = '●';
-
-        }
-        
 
         private void Form11_Load(object sender, EventArgs e)
         {
@@ -74,19 +67,10 @@ namespace skelot
             timer1.Start();
           
         }
-        private void btnCancel_Click(object sender, EventArgs e)
+      
+        private void btnUpdateI_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
         }
         public void CLear() 
         {
@@ -107,9 +91,12 @@ namespace skelot
 
             if (txtPrice.Text == "")
             {
+
+
             }
             else 
             {
+
                 try
                 {
 
@@ -129,6 +116,10 @@ namespace skelot
 
         }
 
+        private void txtIDCode_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
         public void generateID()
     {
 
@@ -173,34 +164,7 @@ namespace skelot
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-        private void Form11_Load(object sender, EventArgs e)
-        {
-            cboGender.SelectedIndex = 0;
-            cboSize.SelectedIndex = 0;
-            cboManufac.SelectedIndex = 0;
-            cn = new SqlConnection(login.connection);
-            cn.Open();
-            getData();
-            generateID();
-            generateOrderID();
-            getManufacturer();
-            timer1.Start();
-          
-        }
-      
 
-        public void CLear() 
-        {
-          //  txtIDCode.Text = "";
-            txtName.Text = "";
-            txtPrice.Text = "";
-            cboGender.Text = "-SELECT-";
-            cboSize.Text = "-SELECT-";
-            txtBrand.Text = "";
-            txtStock.Text = "";
-            
-        
-        }
         private void button3_Click(object sender, EventArgs e)
         {
             this.Dispose();

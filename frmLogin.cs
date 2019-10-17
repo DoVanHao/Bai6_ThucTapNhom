@@ -16,7 +16,7 @@ namespace skelot
         SqlCommand cm;
         SqlConnection cn;
         SqlDataReader dr;
-        public string connection = @"Data Source=DESKTOP-42NHODK;Initial Catalog=QL_Banhang;Integrated Security=True";
+        public string connection = @"Data Source=DESKTOP-2QBJM9N;Initial Catalog=QL_Banhang;Integrated Security=True";
 
 
         public frmLogin()
@@ -40,7 +40,7 @@ namespace skelot
         {
         
 
-            string sql = @"Select * from dbo.Login where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
+            string sql = @"Select * from tblLogin where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
             cm = new SqlCommand(sql, cn);
             dr = cm.ExecuteReader();
             dr.Read();
@@ -69,7 +69,7 @@ namespace skelot
 
             try
             {
-                string sql = @"INSERT INTO dbo.LogTrail VALUES(@Dater,@Description,@Authority)";
+                string sql = @"INSERT INTO tblLogTrail VALUES(@Dater,@Description,@Authority)";
                 cm = new SqlCommand(sql, cn);
                 cm.Parameters.AddWithValue("@Dater", lblTime.Text);
                 cm.Parameters.AddWithValue("@Description", "User: " + txtUsername.Text + " has successfully Logged In!");
@@ -134,7 +134,7 @@ namespace skelot
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;
-            string format = "MM-dd-yyy HH:mm:ss";
+           // string format = "MM-dd-yyy HH:mm:ss";
             lblTime.Text = time.ToString();
         }
 
@@ -146,81 +146,6 @@ namespace skelot
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-		
-		private void Form1_Load(object sender, EventArgs e)
-        {
-            cn = new SqlConnection(connection);
-            cn.Open();
-            txtPassword.PasswordChar = '●';
-
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-
-            FrmRegister frm4 = new FrmRegister();
-            frm4.ShowDialog();
-
-        }
-		
-		private void btnLogin_Click(object sender, EventArgs e)
-        {
-        
-
-            string sql = @"Select * from dbo.Login where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
-            cm = new SqlCommand(sql, cn);
-            dr = cm.ExecuteReader();
-            dr.Read();
-
-            if (dr.HasRows)
-            {
-                this.Hide();
-                dr.Close();
-
-                InsertTrail();
-                FrmBookStore frm2 = new FrmBookStore();
-                frm2.pass(txtUsername.Text, lblTime.Text);
-               
-                frm2.ShowDialog();
-
-              
-            }
-            else
-            {
-                MessageBox.Show("Access Denied! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-
-        }
-		
-		public void InsertTrail() 
-        {
-
-            try
-            {
-                string sql = @"INSERT INTO dbo.LogTrail VALUES(@Dater,@Description,@Authority)";
-                cm = new SqlCommand(sql, cn);
-                cm.Parameters.AddWithValue("@Dater", lblTime.Text);
-                cm.Parameters.AddWithValue("@Description", "User: " + txtUsername.Text + " has successfully Logged In!");
-                cm.Parameters.AddWithValue("@Authority", "Cashier");
-         
-
-                cm.ExecuteNonQuery();
-                           
-            }
-            catch (SqlException l)
-            {
-                MessageBox.Show("Re-input again. your username may already be taken!");
-                MessageBox.Show(l.Message);
-            }
-        }
-		
-		private void timer1_Tick(object sender, EventArgs e)
-        {
-            DateTime time = DateTime.Now;
-            string format = "MM-dd-yyy HH:mm:ss";
-            lblTime.Text = time.ToString();
         }
     }
 }

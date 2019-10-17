@@ -19,31 +19,7 @@
             }
             base.Dispose(disposing);
         }
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
 
-            string sql = @"Select * from tblAdmin where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
-            cm = new SqlCommand(sql, cn);
-            dr = cm.ExecuteReader();
-            dr.Read();
-
-            if (dr.HasRows)
-            {
-
-                FrmAdminMenu frm7 = new FrmAdminMenu();
-                frm7.pass(txtUsername.Text);
-                frm7.Show();
-                this.Hide();
-                dr.Close();
-                InsertTrail();
-                dr.Close();
-            }
-
-            else
-            {
-                MessageBox.Show("Access Denied! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-        }
         #region Windows Form Designer generated code
 
         /// <summary>

@@ -13,10 +13,12 @@ namespace skelot
     
     public partial class FrmAdminLogin : Form
     {
+
         SqlCommand cm;
         SqlConnection cn;
         SqlDataReader dr;
         frmLogin login = new frmLogin();
+       // public string connection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Data.accdb";
 
         public FrmAdminLogin()
         {
@@ -25,57 +27,52 @@ namespace skelot
             cn = new SqlConnection(login.connection);
             cn.Open();
         }
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-            FrmAdminLogin frm5 = new FrmAdminLogin();
-            frm5.Show();
-        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
 
             this.Hide();
             frmStart frm1 = new frmStart();
             frm1.Show();
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
 
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
-        private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            InsertTrail();
-            this.Dispose();
-            FrmAdminLogin frmAL = new FrmAdminLogin();
-            frmAL.Show();
         }
 
-        public void DeleteTrail()
+        private void btnLogin_Click(object sender, EventArgs e)
         {
+
+            string sql = @"Select * from tblAdmin where Username like '" + txtUsername.Text + "' and Password like '" + txtPassword.Text + "'";
+            cm = new SqlCommand(sql, cn);
+            dr = cm.ExecuteReader();
+            dr.Read();
+
+            if (dr.HasRows)
+            {
+               
+                FrmAdminMenu frm7 = new FrmAdminMenu();
+                frm7.pass(txtUsername.Text);
+                frm7.Show();
+                this.Hide();
+                dr.Close();
+                InsertTrail();
+                dr.Close();
+                MessageBox.Show("Welcome Admin :)");            
+            }
+               
+            else
+            {
+                MessageBox.Show("Access Denied! ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+           
+        }
+        public void InsertTrail()
+        {
+
             try
             {
-                string sql = @"INSERT INTO tblAuditTrail VALUES(@Dater,@Transactype,@Description,@Authority)";
+                string sql = @"INSERT INTO tblLogTrail VALUES(@Dater,@Descrip,@Authority)";
                 cm = new SqlCommand(sql, cn);
-                cm.Parameters.AddWithValue("@Dater", lblDateNow.Text);
-                cm.Parameters.AddWithValue("@Transactype", "Deletion");
-                cm.Parameters.AddWithValue("@Description", "Item: " + txtName.Text + " has been removed from Receive Form!");
+                cm.Parameters.AddWithValue("@Dater", lblTime.Text);
+                cm.Parameters.AddWithValue("@Descrip", "User: " + txtUsername.Text + " has successfully Logged In!");
                 cm.Parameters.AddWithValue("@Authority", "Admin");
 
 
@@ -86,84 +83,20 @@ namespace skelot
             }
             catch (SqlException l)
             {
-                MessageBox.Show("Re-input again. your username may already be taken!");
+                MessageBox.Show("Re-input again.");
                 MessageBox.Show(l.Message);
             }
+        }
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '●';
+        }
 
-
-
-            private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime time = DateTime.Now;
            
             lblTime.Text = time.ToString();
         }
-		
-		// hàm xóa
-		
-		public FrmAdminLogin()
-        {
-            InitializeComponent();
-            timer1.Start();
-            cn = new SqlConnection(login.connection);
-            cn.Open();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
-        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-            AdminView AdminSearch = new AdminView();
-            AdminSearch.Show();
-        }
-		
-		public void DeleteTrail()
-        {
-            try
-            {
-                string sql = @"INSERT INTO tblAuditTrail VALUES(@Dater,@Transactype,@Description,@Authority)";
-                cm = new SqlCommand(sql, cn);
-                cm.Parameters.AddWithValue("@Dater", lblDateNow.Text);
-                cm.Parameters.AddWithValue("@Transactype", "Deletion");
-                cm.Parameters.AddWithValue("@Description", "Item: " + txtName.Text + " has been removed from Receive Form!");
-                cm.Parameters.AddWithValue("@Authority", "Admin");
-
-
-                cm.ExecuteNonQuery();
-                //   MessageBox.Show("Record successfully saved!", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-            }
-            catch (SqlException l)
-            {
-                MessageBox.Show("Re-input again. your username may already be taken!");
-                MessageBox.Show(l.Message);
-            }
     }
-	        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
-        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-            AdminView AdminSearch = new AdminView();
-            AdminSearch.Show();
-        }
-        private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            InsertTrail();
-            this.Dispose();
-            FrmAdminLogin frmAL = new FrmAdminLogin();
-            frmAL.Show();
-        }
 }

@@ -22,7 +22,10 @@
 
         #region Windows Form Designer generated code
 
-   
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
@@ -632,7 +635,15 @@
             // 
             // txtBill
             // 
-        
+            this.txtBill.Enabled = false;
+            this.txtBill.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBill.Location = new System.Drawing.Point(187, 14);
+            this.txtBill.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBill.Name = "txtBill";
+            this.txtBill.Size = new System.Drawing.Size(284, 32);
+            this.txtBill.TabIndex = 65;
+            this.txtBill.TextChanged += new System.EventHandler(this.txtBill_TextChanged);
             // 
             // btnSettle
             // 

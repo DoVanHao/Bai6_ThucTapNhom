@@ -55,24 +55,12 @@ namespace skelot
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void ItemReport_Load(object sender, EventArgs e)
-        {
-            InitializeComponent();
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
+
+        private void LoginTrail_Load(object sender, EventArgs e)
         {
 
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
         }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
 
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
         private void cboSort_SelectedIndexChanged(object sender, EventArgs e)
         {
 

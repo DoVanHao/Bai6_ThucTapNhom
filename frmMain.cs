@@ -20,15 +20,8 @@ namespace skelot
     
 
 
-        }
-    private void btnCancel_Click(object sender, EventArgs e)
-    {
 
-        this.Hide();
-        frmStart frm1 = new frmStart();
-        frm1.Show();
-    }
-    ListViewItem lst;
+        ListViewItem lst;
         double Total, temp;
         double _totalPayment, _cash, _change;
         double FinStock;
@@ -131,7 +124,15 @@ namespace skelot
             txtQuantity.Text = "0";
             txtQuantity.Focus();
             txtSum.Text = "0.00";
-           
+            /*
+            lst = listView2.Items.Add(txtID.Text);
+            lst.SubItems.Add(txtDesc.Text);
+            lst.SubItems.Add(txtPrice.Text);
+            lst.SubItems.Add(txtQuantity.Text);
+            lst.SubItems.Add(txtSum.Text);
+            lst.SubItems.Add(txtType.Text);
+            lst.SubItems.Add(txtSize.Text);
+            lst.SubItems.Add(txtBrand.Text);*/
 
         }
 
@@ -741,7 +742,30 @@ namespace skelot
 
         }
 
-       
+        private void txtBrand_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStock_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void txtPayment_KeyPress(object sender, KeyPressEventArgs e)
         {

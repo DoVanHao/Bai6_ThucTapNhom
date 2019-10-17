@@ -17,20 +17,13 @@ namespace skelot
        // SqlDataReader dr;
       //  string connection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Data.accdb";
         frmLogin login = new frmLogin();
-        private void btnExit_Click(object sender, EventArgs e)
+
+
+        public frmAddManufac()
         {
-            this.Dispose();
-            FrmAdminLogin frm5 = new FrmAdminLogin();
-            frm5.Show();
+            InitializeComponent();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -69,51 +62,38 @@ namespace skelot
 
             }
         }
-        public void getManufacturer()
+
+        
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
-            try
-            {
+            frmAddProduct frmAD = new frmAddProduct();
+           // frmAD.getManufacturer();
+            frmAD.Show();
 
-
-                string sql2 = @"Select * from tblManufacturer";
-                cm = new SqlCommand(sql2, cn);
-                dr = cm.ExecuteReader();
-                while (dr.Read())
-                {
-                    cboManufac.Items.Add(dr[1].ToString());
-
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+           this.Dispose();
+          
         }
 
+        private void frmAddManufac_Load(object sender, EventArgs e)
+        {
+            cn = new SqlConnection(login.connection);
+            cn.Open(); 
+            generateID();
+        }
         public void generateID()
         {
 
-           
-            var random = new Random();
             var chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var random = new Random();
             var result = new string(
                 Enumerable.Repeat(chars, 5)
                           .Select(s => s[random.Next(s.Length)])
                           .ToArray());
-            txtID.Text = "MID:" + result;
+            txtID.Text ="MID:" + result;
 
         }
-        private void frmAddManufac_Load(object sender, EventArgs e)
-        {
-            cn = new SqlConnection(login.connection);
-            cn.Open();
-            generateID();
-        }
-        
-
         public void Clear() 
         {
             txtID.Text = "";
