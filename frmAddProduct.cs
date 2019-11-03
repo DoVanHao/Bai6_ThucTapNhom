@@ -163,7 +163,34 @@ namespace skelot
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+        private void Form11_Load(object sender, EventArgs e)
+        {
+            cboGender.SelectedIndex = 0;
+            cboSize.SelectedIndex = 0;
+            cboManufac.SelectedIndex = 0;
+            cn = new SqlConnection(login.connection);
+            cn.Open();
+            getData();
+            generateID();
+            generateOrderID();
+            getManufacturer();
+            timer1.Start();
+          
+        }
+      
 
+        public void CLear() 
+        {
+          //  txtIDCode.Text = "";
+            txtName.Text = "";
+            txtPrice.Text = "";
+            cboGender.Text = "-SELECT-";
+            cboSize.Text = "-SELECT-";
+            txtBrand.Text = "";
+            txtStock.Text = "";
+            
+        
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             this.Dispose();
