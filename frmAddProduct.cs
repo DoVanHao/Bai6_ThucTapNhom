@@ -97,12 +97,9 @@ namespace skelot
 
             if (txtPrice.Text == "")
             {
-
-
             }
             else 
             {
-
                 try
                 {
 
