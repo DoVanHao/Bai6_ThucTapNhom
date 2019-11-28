@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.lblTempID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.RemoveAll = new System.Windows.Forms.Button();
@@ -93,7 +94,7 @@
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotal.Location = new System.Drawing.Point(915, 425);
+            this.lblTotal.Location = new System.Drawing.Point(940, 420);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(40, 19);
@@ -102,19 +103,34 @@
             // 
             // listView1
             // 
-            this.listView1.BackColor = System.Drawing.Color.Gray;
+            this.listView1.BackColor = System.Drawing.Color.White;
             this.listView1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(21, 74);
+            this.listView1.Location = new System.Drawing.Point(21, 81);
             this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1044, 334);
+            this.listView1.Size = new System.Drawing.Size(1044, 327);
             this.listView1.TabIndex = 57;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // lblTempID
+            // 
+            this.lblTempID.AutoSize = true;
+            this.lblTempID.BackColor = System.Drawing.Color.Transparent;
+            this.lblTempID.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTempID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblTempID.Location = new System.Drawing.Point(28, 462);
+            this.lblTempID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTempID.Name = "lblTempID";
+            this.lblTempID.Size = new System.Drawing.Size(43, 19);
+            this.lblTempID.TabIndex = 65;
+            this.lblTempID.Text = "temp";
+            this.lblTempID.Visible = false;
+            this.lblTempID.Click += new System.EventHandler(this.lblTempID_Click);
             // 
             // panel1
             // 
@@ -127,6 +143,7 @@
             this.panel1.Controls.Add(this.btnOkay);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.lblTimer);
+            this.panel1.Controls.Add(this.lblTempID);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.listView1);
@@ -136,7 +153,7 @@
             this.panel1.Location = new System.Drawing.Point(18, 18);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1080, 537);
+            this.panel1.Size = new System.Drawing.Size(1090, 537);
             this.panel1.TabIndex = 65;
             // 
             // button1
@@ -166,7 +183,7 @@
             this.RemoveAll.ForeColor = System.Drawing.Color.White;
             this.RemoveAll.Image = ((System.Drawing.Image)(resources.GetObject("RemoveAll.Image")));
             this.RemoveAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RemoveAll.Location = new System.Drawing.Point(501, 469);
+            this.RemoveAll.Location = new System.Drawing.Point(469, 469);
             this.RemoveAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RemoveAll.Name = "RemoveAll";
             this.RemoveAll.Size = new System.Drawing.Size(204, 51);
@@ -185,7 +202,7 @@
             this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(735, 469);
+            this.btnReport.Location = new System.Drawing.Point(683, 469);
             this.btnReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(162, 51);
@@ -205,7 +222,7 @@
             this.btnOkay.ForeColor = System.Drawing.Color.White;
             this.btnOkay.Image = ((System.Drawing.Image)(resources.GetObject("btnOkay.Image")));
             this.btnOkay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOkay.Location = new System.Drawing.Point(349, 469);
+            this.btnOkay.Location = new System.Drawing.Point(333, 469);
             this.btnOkay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOkay.Name = "btnOkay";
             this.btnOkay.Size = new System.Drawing.Size(127, 51);
@@ -224,7 +241,7 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(907, 20);
+            this.button3.Location = new System.Drawing.Point(909, 26);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(158, 38);
@@ -240,7 +257,7 @@
             this.lblTimer.BackColor = System.Drawing.Color.Transparent;
             this.lblTimer.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTimer.Location = new System.Drawing.Point(136, 32);
+            this.lblTimer.Location = new System.Drawing.Point(91, 32);
             this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(44, 19);
@@ -316,6 +333,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label lblTempID;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;

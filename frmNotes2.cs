@@ -277,12 +277,7 @@ namespace skelot
                 getData();
             }
         }
-        private void btnTaoMoi_Click(object sender, EventArgs e)
-        {
-            frmThemPX_Load(sender, e);
-            dgvSPX.Rows.Clear();
-            numericUpDownSL.Value = numericUpDownGN.Value = 1;
-        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             this.Dispose();

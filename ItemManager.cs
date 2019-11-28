@@ -23,12 +23,7 @@ namespace skelot
         {
             InitializeComponent();
         }
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-            FrmAdminLogin frm5 = new FrmAdminLogin();
-            frm5.Show();
-        }
+
         public void LoadData(string sql)
         {
             cn = new SqlConnection(frm.connection);
@@ -45,32 +40,9 @@ namespace skelot
             reportViewer1.LocalReport.DataSources.Add(rptDataSource);
 
             reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
+        } 
 
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            DateTime time = DateTime.Now;
-            string format = "MM-dd-yyy";
-            lblTimer.Text = time.ToString(format);
-            lblDate.Text = time.ToString();
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
 
-            this.Hide();
-            frmStart frm1 = new frmStart();
-            frm1.Show();
-        }
-        private void ItemReport_Load(object sender, EventArgs e)
-        {
-            InitializeComponent();
-        }
         private void ItemReport_Load(object sender, EventArgs e)
         {
 
