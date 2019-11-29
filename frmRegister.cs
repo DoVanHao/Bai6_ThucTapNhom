@@ -160,5 +160,10 @@ namespace skelot
             lblTimer.Text = time.ToString();
          
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
